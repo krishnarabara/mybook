@@ -1,15 +1,15 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Login = () => {
   const router = useRouter();
   const [error, setError] = useState("");
   // const session = useSession();
   const { data: session, status: sessionStatus } = useSession();
-
+                                                                                                     
   useEffect(() => {
     if (sessionStatus === "authenticated") {
       router.replace("/dashboard");
@@ -19,7 +19,7 @@ const Login = () => {
   const isValidEmail = (email: string) => {
     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
     return emailRegex.test(email);
-  };
+  }; 
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -63,39 +63,46 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus:outline-none focus:border-blue-400 focus:text-black"
+              className="w-full border border-pink-950 text-black rounded px-4 py-3 mb-5 focus:outline-double focus:border-green-950 focus:text-orange-700"
               placeholder="Email"
               required
             />
             <input
+            type="image"
+            src="/home/webclues/Desktop/mybook/backend/public/mybooklogo.svg"  
+            alt="Icon"
+            className="w-12 h-12 rounded-full mb-7"
+          />
+            
+            <input
               type="password"
-              className="w-full border border-gray-300 text-black rounded px-3 py-2 mb-4 focus:outline-none focus:border-blue-400 focus:text-black"
+              className="w-full border border-pink-950 text-black rounded px-4 py-3 mb-5 focus:outline-double focus:border-green-950 focus:text-orange-700"
               placeholder="Password"
               required
             />
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+              className="max-w-full bg-indigo-200 text-red-800 py-3 rounded hover:bg-emerald-300"
             >
               {" "}
               Sign In
             </button>
-            <p className="text-red-600 text-[16px] mb-4">{error && error}</p>
+            <p className="text-gray-700 text-[16px] mb-5">{error && error}</p>
           </form>
           <button
-            className="w-full bg-black text-white py-2 rounded hover:bg-gray-800"
+            className="w-full bg-orange-900 text-teal-200 py-2 rounded hover:bg-orange-500"
             onClick={() => {
               signIn("github");
             }}
           >
-            Sign In with Github
+          Don't have an account? Sign up
           </button>
-          <div className="text-center text-gray-500 mt-4">- OR -</div>
+          <div className="text-center text-indigo-400 mt-5">- OR -</div>
           <Link
-            className="block text-center text-blue-500 hover:underline mt-2"
+            className="block text-center text-teal-300 hover:underline mt-2"
             href="/register"
           >
-            Register Here
+            Login Here
           </Link>
         </div>
       </div>
