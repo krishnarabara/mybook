@@ -11,3 +11,4 @@
 
 #!.yarn/cache
 .pnp.*
+bff-myBook/node_modules
