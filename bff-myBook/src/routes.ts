@@ -1,6 +1,6 @@
 import express from 'express';
-import router from '../controllers';
-import connectDB from '../shared/utils/dataBase/mongo';
+import router from './controllers';
+import connectDB from './shared/utils/dataBase/mongo';
 
 export const app = express();
 app.use(express.json());

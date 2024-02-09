@@ -6,7 +6,7 @@ dotenv.config();
 export const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URL || '', {
-      dbName: 'product-catalogs',
+      dbName: 'My_Book',
     });
 
     console.log("Connected to the database");
