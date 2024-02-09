@@ -12,3 +12,5 @@
 #!.yarn/cache
 .pnp.*
 bff-myBook/node_modules
+bff-myBook/.env
+bff-myBook/.editorconfig

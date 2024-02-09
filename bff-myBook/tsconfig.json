@@ -15,7 +15,8 @@
       "jsx": "react"
     },
     "include": [
-      "src/**/*.ts"
+      "*.ts",
+      "src/**/*.ts",
     ],
     "exclude": [
       "node_modules"

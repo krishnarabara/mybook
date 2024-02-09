@@ -1,4 +1,4 @@
-export type loginBody = {
+export type UserLoginProps = {
     email: string;
     password: string;
   }

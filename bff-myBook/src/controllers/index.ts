@@ -1,10 +1,14 @@
 import express from 'express';
-import { UserController } from "./users";
+import AdminController from './admin';
+import WebController from './web';
+
 
 
 const router = express.Router();
 
-router.post("/admin/login", UserController.checkAdminLogin);
+router.use("/admin", AdminController);
+router.use("/web", WebController);
+
 
 
 export default router;
